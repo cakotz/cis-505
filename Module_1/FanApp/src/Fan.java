@@ -1,3 +1,7 @@
+/*
+Kotz, C. (2024). CIS 505 Intermediate Java Programming. Bellevue University, all rights reserved.
+ */
+
 public class Fan {
     //Creates four constants to represent the speed of a fan.
     static final int STOPPED = 0;
@@ -51,6 +55,7 @@ public class Fan {
         this.color = color;
     }
 
+    //Override the toString
     public String toString() {
         if (on) {
             return "The fan is set to " + speed + " with a color of " + color + " and a radius of " + radius + ".";

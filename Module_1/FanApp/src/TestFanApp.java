@@ -3,7 +3,7 @@ public class TestFanApp {
         Fan fanOne = new Fan();
         Fan fanTwo = new Fan(Fan.MEDIUM, true, 8, "blue");
 
-        fanOne.toString();
-        fanTwo.toString();
+        System.out.println(fanOne);
+        System.out.println(fanTwo);
     }
 }

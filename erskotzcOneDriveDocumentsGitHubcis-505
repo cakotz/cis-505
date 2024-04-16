@@ -1,0 +1,251 @@
+[1mdiff --git a/Module_6/ComposerApp/ComposerApp.iml b/Module_6/ComposerApp/ComposerApp.iml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..c90834f[m
+[1m--- /dev/null[m
+[1m+++ b/Module_6/ComposerApp/ComposerApp.iml[m
+[36m@@ -0,0 +1,11 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<module type="JAVA_MODULE" version="4">[m
+[32m+[m[32m  <component name="NewModuleRootManager" inherit-compiler-output="true">[m
+[32m+[m[32m    <exclude-output />[m
+[32m+[m[32m    <content url="file://$MODULE_DIR$">[m
+[32m+[m[32m      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />[m
+[32m+[m[32m    </content>[m
+[32m+[m[32m    <orderEntry type="inheritedJdk" />[m
+[32m+[m[32m    <orderEntry type="sourceFolder" forTests="false" />[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</module>[m
+\ No newline at end of file[m
+[1mdiff --git a/Module_6/ComposerApp/src/Composer.java b/Module_6/ComposerApp/src/Composer.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..60cbbd6[m
+[1m--- /dev/null[m
+[1m+++ b/Module_6/ComposerApp/src/Composer.java[m
+[36m@@ -0,0 +1,49 @@[m
+[32m+[m[32m/*[m
+[32m+[m[32mKotz, C. (2024). CIS 505 Intermediate Java Programming. Bellevue University, all rights reserved.[m
+[32m+[m[32m */[m
+[32m+[m
+[32m+[m[32mpublic class Composer {[m
+[32m+[m[32m    /*[m
+[32m+[m
+[32m+[m[32m     */[m
+[32m+[m[32m    private int id = 0;[m
+[32m+[m[32m    private String name = "";[m
+[32m+[m[32m    private String genre = "";[m
+[32m+[m
+[32m+[m[32m    //Getters and setters for id, name, and genre.[m
+[32m+[m[32m    public int getId() {[m
+[32m+[m[32m        return id;[m
+[32m+[m[32m    }[m
+[32m+[m[32m    public void setId(int id) {[m
+[32m+[m[32m        this.id = id;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getName() {[m
+[32m+[m[32m        return name;[m
+[32m+[m[32m    }[m
+[32m+[m[32m    public void setName(String name) {[m
+[32m+[m[32m        this.name = name;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getGenre() {[m
+[32m+[m[32m        return genre;[m
+[32m+[m[32m    }[m
+[32m+[m[32m    public void setGenre(String genre) {[m
+[32m+[m[32m        this.genre = genre;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    //Default constructor and argument constructor.[m
+[32m+[m[32m    Composer() {}[m
+[32m+[m[32m    Composer(int id, String name, String genre) {[m
+[32m+[m[32m        this.id = id;[m
+[32m+[m[32m        this.name = name;[m
+[32m+[m[32m        this.genre = genre;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public String toString() {[m
+[32m+[m[32m        return "\nId: " + id + "\n" +[m
+[32m+[m[32m                "Name: " + name + "\n" +[m
+[32m+[m[32m                "Genre: " + genre + "\n";[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/Module_6/ComposerApp/src/ComposerDao.java b/Module_6/ComposerApp/src/ComposerDao.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..4f4704e[m
+[1m--- /dev/null[m
+[1m+++ b/Module_6/ComposerApp/src/ComposerDao.java[m
+[36m@@ -0,0 +1,9 @@[m
+[32m+[m[32m/*[m
+[32m+[m[32mLiang, Y.D. (2019). Introduction to Java Programming and Data Structures:[m
+[32m+[m[32mComprehensive Version (12th ed.). Pearson Education, Inc.[m
+[32m+[m[32mModified by A. Student 2021[m
+[32m+[m[32m */[m
+[32m+[m
+[32m+[m[32mpublic interface ComposerDao extends GenericDao<Composer, Integer> {[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/Module_6/ComposerApp/src/GenericDao.java b/Module_6/ComposerApp/src/GenericDao.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..2d88243[m
+[1m--- /dev/null[m
+[1m+++ b/Module_6/ComposerApp/src/GenericDao.java[m
+[36m@@ -0,0 +1,13 @@[m
+[32m+[m[32m/*[m
+[32m+[m[32mLiang, Y.D. (2019). Introduction to Java Programming and Data Structures:[m
+[32m+[m[32mComprehensive Version (12th ed.). Pearson Education, Inc.[m
+[32m+[m[32mModified by A. Student 2021[m
+[32m+[m[32m */[m
+[32m+[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m
+[32m+[m[32mpublic interface GenericDao<E, K> {[m
+[32m+[m[32m    List<E> findAll();[m
+[32m+[m[32m    E findBy(K key);[m
+[32m+[m[32m    void insert(E entity);[m
+[32m+[m[32m}[m
+[1mdiff --git a/Module_6/ComposerApp/src/META-INF/MANIFEST.MF b/Module_6/ComposerApp/src/META-INF/MANIFEST.MF[m
+[1mnew file mode 100644[m
+[1mindex 0000000..14b8494[m
+[1m--- /dev/null[m
+[1m+++ b/Module_6/ComposerApp/src/META-INF/MANIFEST.MF[m
+[36m@@ -0,0 +1,3 @@[m
+[32m+[m[32mManifest-Version: 1.0[m
+[32m+[m[32mMain-Class: TestComposerApp[m
+[32m+[m
+[1mdiff --git a/Module_6/ComposerApp/src/MemComposerDao.java b/Module_6/ComposerApp/src/MemComposerDao.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..7a5ae9b[m
+[1m--- /dev/null[m
+[1m+++ b/Module_6/ComposerApp/src/MemComposerDao.java[m
+[36m@@ -0,0 +1,47 @@[m
+[32m+[m[32m/*[m
+[32m+[m[32mKotz, C. (2024). CIS 505 Intermediate Java Programming. Bellevue University, all rights reserved.[m
+[32m+[m[32m */[m
+[32m+[m
+[32m+[m[32mimport java.util.ArrayList;[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m
+[32m+[m[32mpublic class MemComposerDao implements ComposerDao{[m
+[32m+[m[32m    //Creates three composer objects to be added to the composers List.[m
+[32m+[m[32m    Composer composerOne = new Composer(1, "Franz Schubert", "Classical, Religious");[m
+[32m+[m[32m    Composer composerTwo = new Composer(2, "Frederic Chopin", "Classical, Jazz");[m
+[32m+[m[32m    Composer composerThree = new Composer(3, "Gabriel Faure", "Classical, Vocal, Latin");[m
+[32m+[m
+[32m+[m[32m    //Creates the composers list and adds the above three composer objects to it.[m
+[32m+[m[32m    private List<Composer> composers = new ArrayList<>() {{[m
+[32m+[m[32m        add(composerOne);[m
+[32m+[m[32m        add(composerTwo);[m
+[32m+[m[32m        add(composerThree);[m
+[32m+[m[32m    }};[m
+[32m+[m
+[32m+[m[32m    //Default constructor[m
+[32m+[m[32m    MemComposerDao() {}[m
+[32m+[m
+[32m+[m[32m    //Overrides the findAll method to return the composers list.[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public List<Composer> findAll() {[m
+[32m+[m[32m        return composers;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    //Overrides the findBy method to return a composer from the composers list that has an id matching the key.[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public Composer findBy(Integer key) {[m
+[32m+[m[32m        for (Composer composer : composers) {[m
+[32m+[m[32m            if (composer.getId() == key) {[m
+[32m+[m[32m                return composer;[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        return new Composer();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    //Overrides the insert method to add a composer object top the composers list.[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public void insert(Composer entity) {[m
+[32m+[m[32m        composers.add(entity);[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/Module_6/ComposerApp/src/TestComposerApp.java b/Module_6/ComposerApp/src/TestComposerApp.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..bfab197[m
+[1m--- /dev/null[m
+[1m+++ b/Module_6/ComposerApp/src/TestComposerApp.java[m
+[36m@@ -0,0 +1,76 @@[m
+[32m+[m[32mimport java.util.List;[m
+[32m+[m[32mimport java.util.Scanner;[m
+[32m+[m[32m/*[m
+[32m+[m[32mKotz, C. (2024). CIS 505 Intermediate Java Programming. Bellevue University, all rights reserved.[m
+[32m+[m[32m */[m
+[32m+[m
+[32m+[m
+[32m+[m[32mimport static java.lang.Integer.parseInt;[m
+[32m+[m
+[32m+[m[32mpublic class TestComposerApp {[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        //Creates a scanner object to get user input and a MemComposerDao object to handle composer information.[m
+[32m+[m[32m        Scanner sc = new Scanner(System.in);[m
+[32m+[m[32m        MemComposerDao mem = new MemComposerDao();[m
+[32m+[m
+[32m+[m[32m        /*[m
+[32m+[m[32m        int id - the id of the composer[m
+[32m+[m[32m        String name - the name of the composer[m
+[32m+[m[32m        String genre - the genre of the composer[m
+[32m+[m[32m         */[m
+[32m+[m[32m        int id;[m
+[32m+[m[32m        String name;[m
+[32m+[m[32m        String genre;[m
+[32m+[m
+[32m+[m[32m        System.out.print("Welcome to the Composer App\n\n");[m
+[32m+[m
+[32m+[m[32m        //Runs the program until the user chooses to exit.[m
+[32m+[m[32m        boolean run = true;[m
+[32m+[m[32m        while (run) {[m
+[32m+[m[32m            //Prompts the user to choose and option.[m
+[32m+[m[32m            System.out.print("""[m
+[32m+[m[41m                    [m
+[32m+[m[32m                    MENU OPTION[m
+[32m+[m[32m                      1. View Composers[m
+[32m+[m[32m                      2. Find Composers[m
+[32m+[m[32m                      3. Add Composer[m
+[32m+[m[32m                      4. Exit[m
+[32m+[m[41m                      [m
+[32m+[m[32m                    Please choose an option:\s""");[m
+[32m+[m
+[32m+[m[32m            //Uses the input from the user to select an option.[m
+[32m+[m[32m            switch (sc.nextLine()) {[m
+[32m+[m[32m                //Displays all the composers from the composers list in the memComposerDao object.[m
+[32m+[m[32m                case "1" -> {[m
+[32m+[m[32m                    List<Composer> composers = mem.findAll();[m
+[32m+[m[32m                    for (Composer composer : composers) {[m
+[32m+[m[32m                        System.out.print(composer);[m
+[32m+[m[32m                    }[m
+[32m+[m[32m                }[m
+[32m+[m[32m                //Displays a composer from the composers list in the memComposerDao object that matches the id entered[m
+[32m+[m[32m                // by the user.[m
+[32m+[m[32m                case "2" -> {[m
+[32m+[m[32m                    System.out.print("\nEnter an id: ");[m
+[32m+[m[32m                    id = parseInt(sc.nextLine());[m
+[32m+[m[32m                    Composer composer = mem.findBy(id);[m
+[32m+[m[32m                    System.out.print("\n--DISPLAYING COMPOSER--");[m
+[32m+[m[32m                    System.out.print(composer);[m
+[32m+[m[32m                }[m
+[32m+[m[32m                //Lets the user input information for a new composer and creates a composer object and adds it to the[m
+[32m+[m[32m                // composers list in the memComposerDao object.[m
+[32m+[m[32m                case "3" -> {[m
+[32m+[m[32m                    System.out.print("\nEnter an id: ");[m
+[32m+[m[32m                    id = parseInt(sc.nextLine());[m
+[32m+[m[32m                    System.out.print("\nEnter a name: ");[m
+[32m+[m[32m                    name = sc.nextLine();[m
+[32m+[m[32m                    System.out.print("\nEnter a genre: ");[m
+[32m+[m[32m                    genre = sc.nextLine();[m
+[32m+[m[32m                    Composer composerInput = new Composer(id, name, genre);[m
+[32m+[m[32m                    mem.insert(composerInput);[m
+[32m+[m[32m                }[m
+[32m+[m[32m                //Sets run too false to end the program.[m
+[32m+[m[32m                case "4" -> run = false;[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m

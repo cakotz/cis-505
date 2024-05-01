@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+
+<GridPane fx:id="gridPane" alignment="center" hgap="5.5" vgap="5.5" xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.example.enhancedfuturevalueapp2.HelloController">
+    <padding><Insets top="11.5" right="12.5" bottom="13.5" left="14.5"/></padding>
+
+    <Label fx:id="lblMonthlyPayment" text="Monthly Payment:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtMonthlyPayment" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+    <Label fx:id="lblInterestRate" text="Interest Rate:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtInterestRate" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+    <Label fx:id="lblInstructions" text="Enter 11.1% as 11.1" textFill="RED" GridPane.halignment="RIGHT"
+           GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+    <Label fx:id="lblYears" text="Years:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <ComboBox fx:id="boxYears" GridPane.halignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2">
+        <padding><Insets top="15" right="0" bottom="15" left="30"/></padding>
+
+        <Button fx:id="btnClear" text="Clear" onAction="#onBtnClearClick"/>
+        <Button fx:id="btnCalculate" text="Calculate" onAction="#onBtnCalculateClick"/>
+    </HBox>
+
+    <Label fx:id="lblDate" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+
+    <TextArea fx:id="textArea" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2"/>
+</GridPane>

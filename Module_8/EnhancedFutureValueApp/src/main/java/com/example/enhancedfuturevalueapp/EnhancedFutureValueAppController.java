@@ -62,9 +62,6 @@ public class EnhancedFutureValueAppController implements Initializable {
         LocalDate date = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
 
-        String formattedDate = date.format(formatter);
-
-        return formattedDate;
+        return date.format(formatter);
     }
-
 }

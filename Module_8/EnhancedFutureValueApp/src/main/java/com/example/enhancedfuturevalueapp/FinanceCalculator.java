@@ -9,8 +9,6 @@ public class FinanceCalculator {
 
         double presentValue = monthlyPayment * months;
 
-        double futureValue = presentValue * (Math.pow(rate, months));
-
-        return  futureValue;
+        return presentValue * (Math.pow(rate, months));
     }
 }
